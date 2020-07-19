@@ -1,0 +1,12 @@
+<div class="container fluid">
+    <form class="row">
+        Select Character File:
+        <input type="file" [(ngModel)]="characterfile" [ngModelOptions]="{standalone: true}" (change) ="onFileChanged($event)">
+        <!-- <input type="submit" (click)="this.onFileChanged($event);this.css.charsheet_selected=true"> -->
+        <!-- <input type="file" [formControl]="file"> -->
+
+        <button type="submit" class="row btn btn-primary" (click)="this.css.charsheet_selected=true" observeFile>
+            Close this window
+        </button>
+    </form>
+</div>

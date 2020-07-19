@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col -md-4" [routerLink]="['/home']">Home</div>
+        <div class="col -md-4" (click)="this.checkUnsavedChanges();"
+         [routerLink]="['/character']" >New Character</div>
+        <app-save-character-prompt *ngIf="css.unsavedchanges"></app-save-character-prompt>
+        <div class="col -md-4" (click)="this.checkUnsavedChanges();this.css.charsheet_selected=false;"
+         [routerLink]="['/character']" >Open Existing Character</div>
+    </div>
+</div>
+

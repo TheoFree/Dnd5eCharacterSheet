@@ -1,0 +1,27 @@
+<div *ngIf="!this.css.charsheet_selected" class="container">
+    <app-opendialog class="row" ></app-opendialog>
+    
+</div>
+<div class="container-fluid vh-100">
+    
+    <div class="row" style="padding-bottom: 1vw;" >
+        <div class="col" ><app-charsheet-header></app-charsheet-header></div>
+    </div>
+    <div class="row flex-grow-1" >
+        <div class="col-md-4">
+            <app-charsheet-stats></app-charsheet-stats>
+            
+        </div>
+        <div class="col-md-4">
+            
+            <app-charsheet-combat></app-charsheet-combat>
+        </div>
+        <div class="col-md-4">
+            <app-charsheet-roleplay></app-charsheet-roleplay>
+            
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-primary" style="position: fixed;bottom:0;right:0;" (click)="downloadcharSheet()">Save character to local file</button>
+
