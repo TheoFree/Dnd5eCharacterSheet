@@ -1,0 +1,174 @@
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-3">
+            Spellcasting Class:
+            <input type="text" [(ngModel)]="css.spellbook.spellClass">
+        </div>
+        <div class="col-md-3">
+            Spellcasting Ability:
+            <input type="text" [(ngModel)]="css.spellbook.spellAbility">
+        </div>
+        <div class="col-md-3">
+            Spell Save DC:
+            <input type="number" [(ngModel)]="css.spellbook.spellSave">
+        </div>
+        <div class="col-md-3">
+            Spell Attack Bonus:
+            <input type="number" [(ngModel)]="css.spellbook.spellAtkBonus">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div style="max-height: 300px; overflow-y:auto;">
+            <div style="text-align: center;margin:auto;font-size: larger;">Cantrips</div>
+            <table class="table table-dark" style="width:100%; text-align:center;">
+                <thead>
+                    <tr>
+                        <th>Spell</th>
+                        <th>School</th>
+                        <th>Casting Time</th>
+                        <th>Casting Duration</th>
+                        <th>Spell Range</th>
+                        <th>Ritual</th>
+                        <th>Concentration</th>
+                        <th>Materials</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let spell of css.spellbook.cantrips" data-toggle="tootltip" data-container="body"
+                        [title]="spell.description">
+                        <td>{{spell.name}}</td>
+                        <td>{{spell.school}}</td>
+                        <td>{{spell.castingTime}}</td>
+                        <td>{{spell.castingDuration}}</td>
+                        <td>{{spell.castingRange}}</td>
+                        <td>{{spell.ritual}}</td>
+                        <td>{{spell.concentration}}</td>
+                        <td>{{spell.components}}</td>
+                        <button class="btn btn-secondary"
+                            (click)="this.deleteCantripName = spell.name;this.deleteCantrip()">X</button>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td>Cantrip Name:<input type="text" [(ngModel)]="cantrip.newCantripName"></td>
+                        <td>Cantrip School:<input type="text" [(ngModel)]="cantrip.newCantripSchool"></td>
+                        <td>Cantrip Cast Time:<input type="text" [(ngModel)]="cantrip.newCantripCast"></td>
+                        <td>Cantrip Duration: <input type="text" [(ngModel)]="cantrip.newCantripDuration"></td>
+                        <td>Cantrip Range: <input type="text" [(ngModel)]="cantrip.newCantripRange"></td>
+                        <td>Cantrip Ritual?:<input type="text" [(ngModel)]="cantrip.newCantripRitual"></td>
+                        <td>Cantrip Concentration?:<input type="text" [(ngModel)]="cantrip.newCantripConcentration">
+                        </td>
+                        <td>Cantrip Materials?: <input type="text" [(ngModel)]="cantrip.newCantripComponents"></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="8">Spell Description?: <input type="text" [(ngModel)]="cantrip.newCantripDesc"
+                                style="width:80%;"> </td>
+                        <button class="btn btn-primary" type="submit" (click)="addCantrip()">Add Spell</button>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-75 m-auto">
+            <div class="navbar-brand">Select spell level to view</div>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav ">
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(1);">Spell Level 1</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(2)">Spell Level 2</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(3)">Spell Level 3</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(4)">Spell Level 4</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(5)">Spell Level 5</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(6)">Spell Level 6</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(7)">Spell Level 7</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(8)">Spell Level 8</button>
+                    <button class="nav-item btn px-2" (click)="this.selectSpellBook(9)">Spell Level 9</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="offset-md-3 col-md-3">
+                    <div class="card">
+                        Total spell slots at {{selectedSpellLevel}} Level: <input type="number"
+                            [(ngModel)]="this.selectedSpellSlotsMax">
+                    </div>
+                </div>
+                <div class="col-md-3 card">
+                    Spell slots expended: <input type="number" [(ngModel)]="this.selectedSpellSlots">
+                </div>
+            </div>
+            <div class="row">
+                <div style="max-height: 350px; overflow-y:auto;">
+                    <table class="table table-dark" style="width:100%; text-align:center">
+                        <thead>
+                            <tr>
+                                <th>Spell</th>
+                                <th>School</th>
+                                <th>Casting Time</th>
+                                <th>Casting Duration</th>
+                                <th>Spell Range</th>
+                                <th>Ritual</th>
+                                <th>Concentration</th>
+                                <th>Materials</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let spell of this.selectedSpellBook" data-toggle="tootltip"
+                                data-container="body" [title]="spell.description">
+                                <td>{{spell.name}}</td>
+                                <td>{{spell.school}}</td>
+                                <td>{{spell.castingTime}}</td>
+                                <td>{{spell.castingDuration}}</td>
+                                <td>{{spell.castingRange}}</td>
+                                <td>{{spell.ritual}}</td>
+                                <td>{{spell.concentration}}</td>
+                                <td>{{spell.components}}</td>
+                                <button class="btn btn-secondary"
+                                    (click)="this.deleteSpellName = spell.name;this.deleteSpell()">X</button>
+                            </tr>
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                                <td>Spell Name:<input type="text" [(ngModel)]="spell.newSpellName"></td>
+                                <td>Spell School:<input type="text" [(ngModel)]="spell.newSpellSchool"></td>
+                                <td>Spell Cast Time:<input type="text" [(ngModel)]="spell.newSpellCast"></td>
+                                <td>Spell Duration: <input type="text" [(ngModel)]="spell.newSpellDuration"></td>
+                                <td>Spell Range: <input type="text" [(ngModel)]="spell.newSpellRange"></td>
+                                <td>Spell Ritual?:<input type="text" [(ngModel)]="spell.newSpellRitual"></td>
+                                <td>Spell Concentration?:<input type="text" [(ngModel)]="spell.newSpellConcentration">
+                                </td>
+                                <td>Spell Materials?: <input type="text" [(ngModel)]="spell.newSpellComponents"></td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="8">Spell Description?: <input type="text" [(ngModel)]="spell.newSpellDesc"
+                                        style="width:80%;"> </td>
+                                <button class="btn btn-primary" type="submit" (click)="addSpell()">Add Spell</button>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2"><button class="btn btn-primary"
+                    style="position: fixed;bottom:0;"
+                    (click)="css.spellbook_view = !css.spellbook_view"> Go Back to main Charactersheet</button></div>
+            <div class="col-md-5"></div>
+        </div>
+    </div>

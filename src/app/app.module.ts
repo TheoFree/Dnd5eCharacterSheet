@@ -14,6 +14,10 @@ import { RoleplayComponent } from './components/charsheet/roleplay/roleplay.comp
 import { CharactersheetService } from './services/charactersheet.service';
 import { OpendialogComponent } from './components/charsheet/opendialog/opendialog.component';
 import { SaveCharacterPromptComponent } from './components/save-character-prompt/save-character-prompt.component';
+import { BioComponent } from './components/bio/bio.component';
+import { SpellsComponent } from './components/spells/spells.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,12 +30,15 @@ import { SaveCharacterPromptComponent } from './components/save-character-prompt
     CombatComponent,
     RoleplayComponent,
     OpendialogComponent,
-    SaveCharacterPromptComponent
+    SaveCharacterPromptComponent,
+    BioComponent,
+    SpellsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [CharactersheetService],

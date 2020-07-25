@@ -1,27 +1,32 @@
-<div class="container">
+<div class="container" >
     <div class="row">
-        <div class="col">
-            <h4>Personality Traits</h4>
+        <div class="col card">
+            <div class="card-body"><textarea class="auto-text-area" rows="1" [(ngModel)]="css.firstPage.roleplay_personalityTraits"></textarea></div>
+            <div class="card-footer">Personality Traits</div>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <h4>Ideals</h4>
+        <div class="col card">
+            <div class="card-body"><textarea rows="1" [(ngModel)]="css.firstPage.roleplay_ideals" class="auto-text-area"></textarea></div>
+            <div class="card-footer">Ideals</div>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <h4>Bonds</h4>
+        <div class="col card">
+            <div class="card-body"><textarea rows="1" [(ngModel)]="css.firstPage.roleplay_bonds" class="auto-text-area"></textarea></div>
+            <div class="card-footer">Bonds</div>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <h4>Flaws</h4>
+        <div class="col card">
+            <div class="card-body"><textarea rows="1" [(ngModel)]="css.firstPage.roleplay_flaws" class="auto-text-area"></textarea></div>
+            <div class="card-footer">Flaws</div>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <h4>Features and Traits</h4>
+        <div class="col card" >
+            <div class="card-body"><textarea rows="1" style="height: 250px; font-size: inherit;" [(ngModel)]="css.firstPage.roleplay_featuresAndTraits" class="auto-text-area"></textarea></div>
+            <div class="card-footer">Features and Traits</div>
         </div>
     </div>
 </div>

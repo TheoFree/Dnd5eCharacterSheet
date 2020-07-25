@@ -1,48 +1,55 @@
-<div class="container-fluid" style="padding-top:2vw;" >
-    <div class="row">
-        <div class="col-md-3">
-            <h4>
-                Name: <input type="text" [(ngModel)]="css.firstPage.name" >
-            </h4>
-        </div>
-        <div class="col-md-3">
-            <h6>
-                <div style="display: inline;">
-                    Class: <input type="text" [(ngModel)]="css.firstPage.class" style="width:10vw" >
+<div class="container-fluid">
+    <div class="h-50">
+        <div class="row">
+            <div class="col-md-3" style="text-align: center;padding-top:20px;">
+                <h5>
+                    Name: <input type="text" [(ngModel)]="css.firstPage.name">
+                </h5>
+            </div>
+            <div class="col-md-9" style="padding-top:10px">
+                <div class="row no-gutters">
+
+                    <div class="col-md-4">
+                        <h6>
+                            <div style="display: inline;">
+                                Class: <input type="text" [(ngModel)]="css.firstPage.class" style="width:10vw">
+                            </div>
+
+                            <div style="display: inline; margin-left: 1vw;">
+                                level: <input type="number" [(ngModel)]="css.firstPage.level" style="width: 10%; ">
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>
+                            Background: <input type="text" [(ngModel)]="css.firstPage.background">
+                        </h6>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>
+                            Player: <input type="text" [(ngModel)]="css.firstPage.player">
+                        </h6>
+                    </div>
                 </div>
-                
-                 <div style="display: inline; margin-left: 1vw;">
-                    level: <input type="number" [(ngModel)]="css.firstPage.level" style="width: 3vw; ">
-                 </div>
-            </h6>
-        </div>
-        <div class="col-md-3">
-            <h6>
-                Background: <input type="text" [(ngModel)]="css.firstPage.background">
-            </h6>
-        </div>
-        <div class="col-md-3">
-            <h6>
-                Player: <input type="text" [(ngModel)]="css.firstPage.player">
-            </h6>
-        </div>
-    </div>
-    <div class="row">
-        
-        <div class="offset-md-3 col-md-3">
-            <h6>
-                Race: <input type="text" [(ngModel)]="css.firstPage.race" >
-            </h6>
-        </div>
-        <div class="col-md-3">
-            <h6>
-                Alignment: <input type="text" [(ngModel)]="css.firstPage.alignment">
-            </h6>
-        </div>
-        <div class="col-md-3">
-            <h6>
-                Experience: <input type="number" [(ngModel)]="css.firstPage.experience" >
-            </h6>
+                <div class="row no-gutters">
+
+                    <div class="col-md-4">
+                        <h6>
+                            Race: <input type="text" [(ngModel)]="css.firstPage.race">
+                        </h6>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>
+                            Alignment: <input type="text" [(ngModel)]="css.firstPage.alignment">
+                        </h6>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>
+                            Experience: <input type="number" [(ngModel)]="css.firstPage.experience">
+                        </h6>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

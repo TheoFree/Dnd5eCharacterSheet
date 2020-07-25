@@ -26,7 +26,9 @@ export class OpendialogComponent implements OnInit {
     //fileReader.onload =(e)=>{filetext=fileReader.result;}
     fileReader.addEventListener("load", e =>{
       if (typeof fileReader.result === 'string')console.log(e.target.result,filetext = JSON.parse(fileReader.result));
-      this.css.setCharacterValuesFirstPage( filetext);
+      //this.css.setCharacterValuesFirstPage( filetext.firstpage);
+      this.css.firstPage=filetext.firstpage;
+      this.css.spellbook=filetext.spells;
       this.css.charsheet_selected = true;
       
     })

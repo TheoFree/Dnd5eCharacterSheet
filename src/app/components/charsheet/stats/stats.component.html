@@ -1,233 +1,279 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 card" style="align-items:center;">
-            <div class="row ">
-                <!-- <div class="col"> -->
-                    <h3>Stats</h3>
-                <!-- </div> -->
-            </div>
-            <div class="row card text-center w-75" >
-                <!-- <div class="col card "> -->
-                    <h5>Strength</h5>
-                    <input type="number" [(ngModel)]="css.firstPage.strength_score" (change)="css.calculateCharacterSkills()">
-                    <div > Modifier: {{css.firstPage.strength_modifier}}</div>
-                <!-- </div> -->
+<div class="container" style="height:1000px">
+    <div class="row no-gutter">
+        <div class="col-md-6 card" style="align-items:center;padding-top:8px">
+
+            <div class="row card text-center w-75">
+
+                <h5>Strength</h5>
+                <input type="number" [(ngModel)]="css.firstPage.strength_score"
+                    (change)="css.calculateCharacterSkills()">
+                <div> Modifier: {{css.firstPage.strength_modifier}}</div>
+
             </div>
             <div class="row card text-center w-75">
-                <!-- <div class="col card"> -->
-                    <h5>Dexterity</h5>
-                    <input type="number" [(ngModel)]="css.firstPage.dexterity_score"(change)="css.calculateCharacterSkills()">
-                    <div> Modifier: {{css.firstPage.dexterity_modifier}}</div>
-                <!-- </div> -->
+
+                <h5>Dexterity</h5>
+                <input type="number" [(ngModel)]="css.firstPage.dexterity_score"
+                    (change)="css.calculateCharacterSkills()">
+                <div> Modifier: {{css.firstPage.dexterity_modifier}}</div>
+
             </div>
             <div class="row card text-center w-75">
-                <!-- <div class="col card"> -->
-                    <h5>Constitution</h5>
-                    <input type="number" [(ngModel)]="css.firstPage.constitution_score"(change)="css.calculateCharacterSkills()">
-                    <div> Modifier: {{css.firstPage.constitution_modifier}}</div>
-                <!-- </div> -->
+
+                <h5>Constitution</h5>
+                <input type="number" [(ngModel)]="css.firstPage.constitution_score"
+                    (change)="css.calculateCharacterSkills()">
+                <div> Modifier: {{css.firstPage.constitution_modifier}}</div>
+
             </div>
             <div class="row card text-center w-75">
-                <!-- <div class="col card"> -->
-                    <h5>Intellect</h5>
-                    <input type="number" [(ngModel)]="css.firstPage.intellect_score"(change)="css.calculateCharacterSkills()">
-                    <div> Modifier: {{css.firstPage.intellect_modifier}}</div>
-                <!-- </div> -->
+
+                <h5>Intellect</h5>
+                <input type="number" [(ngModel)]="css.firstPage.intellect_score"
+                    (change)="css.calculateCharacterSkills()">
+                <div> Modifier: {{css.firstPage.intellect_modifier}}</div>
+
             </div>
             <div class="row card text-center w-75">
-                <!-- <div class="col card"> -->
-                    <h5>Wisdom</h5>
-                    <input type="number" [(ngModel)]="css.firstPage.wisdom_score"(change)="css.calculateCharacterSkills()">
-                    <div> Modifier: {{css.firstPage.wisdom_modifier}}</div>
-                <!-- </div> -->
+
+                <h5>Wisdom</h5>
+                <input type="number" [(ngModel)]="css.firstPage.wisdom_score" (change)="css.calculateCharacterSkills()">
+                <div> Modifier: {{css.firstPage.wisdom_modifier}}</div>
+
             </div>
             <div class="row card text-center w-75">
-                <!-- <div class="col card"> -->
-                    <h5>Charisma</h5>
-                    <input type="number" [(ngModel)]="css.firstPage.charisma_score"(change)="css.calculateCharacterSkills()">
-                    <div> Modifier: {{css.firstPage.charisma_modifier}}</div>
-                <!-- </div> -->
+
+                <h5>Charisma</h5>
+                <input type="number" [(ngModel)]="css.firstPage.charisma_score"
+                    (change)="css.calculateCharacterSkills()">
+                <div> Modifier: {{css.firstPage.charisma_modifier}}</div>
+
             </div>
-            <div class="row card text-center w-75">
+            <div class="row card text-center w-100">
                 <div class="col">
-                    <h6>Passive Perception: {{css.firstPage.passive_perception}}</h6>
+                    Passive Perception: {{css.firstPage.passive_perception}}
                 </div>
             </div>
-            <div class="row">
-                <div class="col card">
-                    <h6>Language, Weapon, Armor, Tool Proficiencies</h6>
-                    <input type="text" [(ngModel)]="css.firstPage.proficiencies">
+            <div class="row card w-100">
+                <div class="col">
+                    Language, Weapon, Armor, Tool Proficiencies
+                    <textarea [(ngModel)]="css.firstPage.proficiencies" cols="20" rows="3"
+                        style="width:100%;resize:none;overflow-y:auto;"></textarea>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="row">
-                <div class="col">
-                    <h6>Proficiency Bonus<input type="number" [(ngModel)]="css.firstPage.proficiency"(change)="css.calculateCharacterSkills()"></h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5>Saving Throws</h5>
+            <div class="row card">
+                <div class="col "
+                    style="display:flex;justify-content:center;align-items:center;text-align: center;padding: 8px 0;">
+                    Proficiency Bonus<input type="number" [(ngModel)]="css.firstPage.proficiency"
+                        (change)="css.calculateCharacterSkills()" style="width:2.5vw; margin-left:1vw">
                 </div>
             </div>
             <div class="row">
                 <div class="col card">
-                    <h6>
-                        <input type="checkbox" [(ngModel)]="css.firstPage.save_strength_prof" (change)="css.calculateCharacterSkills()">
-                         STR
-                        <input type="number" [(ngModel)]="css.firstPage.save_strength">
-                        </h6>
+                    <table style="table-layout: fixed;">
+                        <thead style="text-align: center;">
+                            <tr>
+                                <th>Prof.</th>
+                                <th >Saving Throws</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody style="text-align: center;">
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.save_strength_prof"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Strength</td>
+                                <td>{{css.firstPage.save_strength}}</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.save_dexterity_prof"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Dexterity</td>
+                                <td>{{css.firstPage.save_dexterity}}</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.save_constitution_prof"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Constitution</td>
+                                <td>{{css.firstPage.save_constitution}}</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.save_intellect_prof"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Intellect</td>
+                                <td>{{css.firstPage.save_intellect}}</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.save_wisdom_prof"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Wisdom</td>
+                                <td>{{css.firstPage.save_wisdom}} </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.save_charisma_prof"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Charisma</td>
+                                <td>{{css.firstPage.save_charisma}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="row card">
-                <div class="col">
-                    <h6>
-                        <input type="checkbox" [(ngModel)]="css.firstPage.save_dexterity_prof" (change)="css.calculateCharacterSkills()">
-                         DEX
-                        <input type="number" [(ngModel)]="css.firstPage.save_dexterity">
-                        </h6>
-                </div>
-            </div>
-            <div class="row card">
-                <div class="col">
-                    <h6>
-                    <input type="checkbox" [(ngModel)]="css.firstPage.save_constitution_prof"(change)="css.calculateCharacterSkills()">
-                         CON
-                        <input type="number" [(ngModel)]="css.firstPage.save_constitution">
-                        </h6>
-                </div>
-            </div>
-            <div class="row card">
-                <div class="col">
-                    <h6>
-                    <input type="checkbox" [(ngModel)]="css.firstPage.save_intellect_prof"(change)="css.calculateCharacterSkills()">
-                         INT
-                        <input type="number" [(ngModel)]="css.firstPage.save_intellect">
-                        </h6>
-                </div>
-            </div>
-            <div class="row card ">
-                <div class="col">
-                    <h6>
-                    <input type="checkbox" [(ngModel)]="css.firstPage.save_wisdom_prof"(change)="css.calculateCharacterSkills()">
-                         WIS
-                        <input type="number" [(ngModel)]="css.firstPage.save_wisdom">
-                        </h6>
-                </div>
-            </div>
-            <div class="row card">
-                <div class="col">
-                    <h6>
-                    <input type="checkbox" [(ngModel)]="css.firstPage.save_charisma_prof"(change)="css.calculateCharacterSkills()">
-                         CHR
-                        <input type="number" [(ngModel)]="css.firstPage.save_charisma">
-                        </h6>
-                </div>
-            </div>
-            <div class="row card">
-                <div class="col">
-                    <!-- <table class="table" style="border-spacing: 0;" >
-                        <thead>
+
+            <div class="row ">
+                <div class="col card">
+                    <table style="table-layout: fixed;">
+                        <thead style="text-align:center">
                             <tr>
                                 <th>Prof.</th>
                                 <th>Skill</th>
                                 <th>Value</th>
                             </tr>
                         </thead>
-                        <tbody> -->
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_acrobatics_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Acrobatics</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_acrobatics}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_animalHandling_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Animal Handling</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_animalHandling}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_arcana_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Arcana</div>
-                                <div style="display:inline-block text-align:right;">{{css.firstPage.skill_arcana}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_athletics_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Athletics</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_athletics}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_deception_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Deception</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_deception}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_history_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">History</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_history}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_insight_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Insight</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_insight}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_intimidation_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Intimidation</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_intimidation}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_investigation_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Investigation</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_investigation}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_medicine_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Medicine</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_medicine}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_nature_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Nature</div>
-                                <div style="display:inline-block text-align:right;">{{css.firstPage.skill_nature}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_perception_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Perception</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_perception}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_performance_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Performance</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_performance}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_persuasion_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Persuasion</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_persuasion}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_religion_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Religion</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_religion}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_sleightOfHand_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Sleight of Hand</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_sleightOfHand}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_stealth_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Stealth</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_stealth}}</div>
-                            </div>
-                            <div>
-                                <div style="display:inline-block;"><input type="checkbox" [(ngModel)]="css.firstPage.skill_survival_proficiency"(change)="css.calculateCharacterSkills()">
-                                <div style="display:inline-block; padding-left: 3rem;padding-right: 2rem;">Survival</div>
-                                <div style="display:inline-block; text-align:right">{{css.firstPage.skill_survival}}</div>
-                            </div>
-                      <!--   </tbody>
-                    </table> -->
+                        <tbody style="text-align:center;">
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_acrobatics_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Acrobatics
+                                </td>
+                                <td>{{css.firstPage.skill_acrobatics}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_animalHandling_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Animal
+                                    Handling</td>
+                                <td>
+                                    {{css.firstPage.skill_animalHandling}}</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_arcana_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Arcana</td>
+                                <td>{{css.firstPage.skill_arcana}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_athletics_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Athletics
+                                </td>
+                                <td>{{css.firstPage.skill_athletics}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_deception_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Deception
+                                </td>
+                                <td>{{css.firstPage.skill_deception}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_history_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>History</td>
+                                <td>{{css.firstPage.skill_history}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_insight_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Insight</td>
+                                <td>{{css.firstPage.skill_insight}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_intimidation_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Intimidation
+                                </td>
+                                <td>{{css.firstPage.skill_intimidation}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_investigation_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Investigation
+                                </td>
+                                <td>
+                                    {{css.firstPage.skill_investigation}}</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_medicine_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Medicine
+                                </td>
+                                <td>{{css.firstPage.skill_medicine}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_nature_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Nature</td>
+                                <td>{{css.firstPage.skill_nature}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_perception_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Perception
+                                </td>
+                                <td>{{css.firstPage.skill_perception}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_performance_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Performance
+                                </td>
+                                <td>{{css.firstPage.skill_performance}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_persuasion_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Persuasion
+                                </td>
+                                <td>{{css.firstPage.skill_persuasion}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_religion_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Religion
+                                </td>
+                                <td>{{css.firstPage.skill_religion}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_sleightOfHand_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Sleight of
+                                    Hand</td>
+                                <td>
+                                    {{css.firstPage.skill_sleightOfHand}}</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_stealth_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Stealth</td>
+                                <td>{{css.firstPage.skill_stealth}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" [(ngModel)]="css.firstPage.skill_survival_proficiency"
+                                        (change)="css.calculateCharacterSkills()"></td>
+                                <td>Survival
+                                </td>
+                                <td>{{css.firstPage.skill_survival}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

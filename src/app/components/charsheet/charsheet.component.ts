@@ -10,19 +10,20 @@ import { HeaderComponent } from './header/header.component';
   styleUrls: ['./charsheet.component.scss']
 })
 export class CharsheetComponent implements OnInit {
-  setSheetValues($event){
-    
-  }
+  displayCharacterSheet:boolean = true;
+  saveCharacter:boolean=false;
+  savename:string="";
   constructor(public css:CharactersheetService) {}
    newChar:Boolean = this.css.charsheet_selected;
    downloadcharSheet():void{
-    var dataSTR = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.css.firstPage));
+    var dataSTR = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({firstpage:this.css.firstPage,spells:this.css.spellbook}));
     var downloadElement = document.createElement('a');
     downloadElement.setAttribute("href", dataSTR);
-    downloadElement.setAttribute("download", this.css.firstPage.name +".json");
+    downloadElement.setAttribute("download", this.savename +".json");
     document.body.appendChild(downloadElement);
     downloadElement.click();
     downloadElement.remove();
+    this.saveCharacter=!this.saveCharacter;
   }  
   ngOnInit(): void {
 

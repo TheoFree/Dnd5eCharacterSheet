@@ -1,27 +1,55 @@
 <div *ngIf="!this.css.charsheet_selected" class="container">
-    <app-opendialog class="row" ></app-opendialog>
-    
+    <app-opendialog class="row"></app-opendialog>
+
 </div>
-<div class="container-fluid vh-100">
-    
-    <div class="row" style="padding-bottom: 1vw;" >
-        <div class="col" ><app-charsheet-header></app-charsheet-header></div>
-    </div>
-    <div class="row flex-grow-1" >
-        <div class="col-md-4">
-            <app-charsheet-stats></app-charsheet-stats>
-            
+<div class="container-fluid " *ngIf="displayCharacterSheet&&!css.spellbook_view">
+
+    <div class="row" style="padding-bottom: 1vw;">
+        <div class="col">
+            <app-charsheet-header></app-charsheet-header>
         </div>
-        <div class="col-md-4">
-            
+    </div>
+    <div class="row">
+        <div class="col-md-4 ">
+            <app-charsheet-stats></app-charsheet-stats>
+
+        </div>
+        <div class="col-md-4 ">
+
             <app-charsheet-combat></app-charsheet-combat>
         </div>
-        <div class="col-md-4">
-            <app-charsheet-roleplay></app-charsheet-roleplay>
-            
+        <div class="col-md-4 ">
+            <app-charsheet-roleplay style="position: relative;bottom:0"></app-charsheet-roleplay>
+
         </div>
     </div>
 </div>
+<div class="container-fluid" *ngIf="css.spellbook_view"
+    style="position:fixed;left:0;top:0;height: 100%;width:100%;margin-top: 22px;">
+    <app-spells></app-spells>
+</div>
+<div *ngIf="!displayCharacterSheet" style="position:fixed;left:0;top:0;height: 100%;width:100%;margin-top: 22px;"></div>
+<button class="btn btn-primary" style="position: fixed;bottom:0;right:0;"
+    (click)="this.saveCharacter=!this.saveCharacter">Save character
+    to local file</button>
 
-<button class="btn btn-primary" style="position: fixed;bottom:0;right:0;" (click)="downloadcharSheet()">Save character to local file</button>
+<button class="btn btn-primary" style="position: fixed;bottom:0;left:0;"
+    (click)="this.displayCharacterSheet=!this.displayCharacterSheet">Click to hide charactersheet</button>
+<div class="container" *ngIf="saveCharacter"
+    style="position: fixed;top:45%;left:35%;width: 35%;height:5%; z-index: 1; ">
+    <div class="row">
+        <div class="col" style="padding-top:16px;background:rgba(0,0,0,.8);text-align: center;">
+            Enter save-file name:
+        </div>
+        <div class="col-6" style="background:rgba(0,0,0,.8)">
+            <input class="form-control-plaintext mx-auto" type="text" [(ngModel)]="savename"
+                style="background:rgba(255, 255, 255, 0.8);color:black; text-align: center;">
 
+        </div>
+        <div class="col-2" style="background:rgba(0,0,0,.8)">
+            <button type="submit" class="btn btn-primary mx-auto" style="background:rgba(0,0,0,.8)"
+                (click)="downloadcharSheet()">submit</button>
+            <button class="btn btn-secondary"(click)="this.saveCharacter=!this.saveCharacter">Cancel</button>
+        </div>
+    </div>
+</div>

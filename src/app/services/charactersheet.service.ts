@@ -11,6 +11,17 @@ export class CharactersheetService {
 
   unsavedchanges:boolean = false;
   charsheet_selected:boolean=true;
+  spellbook_view:boolean=false;
+  spell = {
+    name:"",
+    school:"",
+    castingTime:"",
+    castingDuration:"",
+    castingRange:"",
+    ritual:"",
+    concentration:"",
+    components:"",
+  }
   firstPage = {
     name: "",
     class: "",
@@ -100,8 +111,13 @@ export class CharactersheetService {
     hitDice_total: "",
     hitDice_value: "",
 
-    deathsaves_life: 0,
-    deathsaves_death: 0,
+    deathsaves_life1: false,
+    deathsaves_life2: false,
+    deathsaves_life3: false,
+    
+    deathsaves_death1: false,
+    deathsaves_death2: false,
+    deathsaves_death3: false,
 
     weapon1_name: "",
     weapon1_atkBonus: "",
@@ -130,11 +146,45 @@ export class CharactersheetService {
     roleplay_flaws: "",
     roleplay_featuresAndTraits: ""
   }
+  spellbook = {
+    spellClass:"",
+    spellAbility:"",
+    spellSave:0,
+    spellAtkBonus:0,
+    cantrips:[],
+    firstLvl: [],
+    firstSlots:0,
+    firstSlotsTotal:0,
+    secondLvl: [],
+    secondSlots:0,
+    secondSlotsTotal:0,
+    thirdLvl: [],
+    thirdSlots:0,
+    thirdSlotsTotal:0,
+    fourthLvl: [],
+    fourthSlots:0,
+    fourthSlotsTotal:0,
+    fifthLvl: [],
+    fifthSlots:0,
+    fifthSlotsTotal:0,
+    sixthLvl: [],
+    sixthSlots:0,
+    sixthSlotsTotal:0,
+    seventhLvl: [],
+    seventhSlots:0,
+    seventhSlotsTotal:0,
+    eigthLvl: [],
+    eigthSlots:0,
+    eigthSlotsTotal:0,
+    ninthLvl: [],
+    ninthSlots:0,
+    ninthSlotsTotal:0,
+  }
 
   /**
    * setCharacterValues
    */
-  public setCharacterValuesFirstPage( csfp? ){// = this.firstPage) {
+  /* public setCharacterValuesFirstPage( csfp? ){// = this.firstPage) {
     if(csfp != null){
     //set header values
     this.firstPage.name = csfp.name;
@@ -152,7 +202,19 @@ export class CharactersheetService {
     this.firstPage.intellect_score=csfp.intellect_score;
     this.firstPage.wisdom_score=csfp.wisdom_score;
     this.firstPage.charisma_score=csfp.charisma_score;
+
+
     //set proficiency values
+
+    this.firstPage.proficiency=csfp.proficiency;
+    
+    this.firstPage.save_strength_prof=csfp.save_strength_prof;
+    this.firstPage.save_dexterity_prof=csfp.save_dexterity_prof;
+    this.firstPage.save_constitution_prof=csfp.save_constitution_prof;
+    this.firstPage.save_intellect_prof=csfp.save_intellect_prof;
+    this.firstPage.save_wisdom_prof=csfp.save_wisdom_prof;
+    this.firstPage.save_charisma_prof=csfp.save_charisma_prof;
+
     this.firstPage.skill_acrobatics_proficiency=csfp.skill_acrobatics_proficiency;
     this.firstPage.skill_animalHandling_proficiency=csfp.skill_animalHandling_proficiency;
     this.firstPage.skill_arcana_proficiency=csfp.skill_arcana_proficiency;
@@ -171,6 +233,55 @@ export class CharactersheetService {
     this.firstPage.skill_sleightOfHand_proficiency=csfp.skill_sleightOfHand_proficiency;
     this.firstPage.skill_stealth_proficiency=csfp.skill_stealth_proficiency;
     this.firstPage.skill_survival_proficiency=csfp.skill_survival_proficiency;
+    this.firstPage.proficiencies=csfp.proficiencies;
+
+    //set combat values
+
+    this.firstPage.initiative = csfp.initiative;
+    this.firstPage.speed = csfp.speed;
+    this.firstPage.armorClass = csfp.armorClass;
+    
+    this.firstPage.health_maximum = csfp.health_maximum;
+    this.firstPage.health_current = csfp.health_current;
+    this.firstPage.health_temporary = csfp.health_temporary;
+    
+    this.firstPage.hitDice_total = csfp.hitDice_total;
+    this.firstPage.hitDice_value = csfp.hitDice_value;
+
+    this.firstPage.deathsaves_death1 = csfp.deathsaves_death1;
+    this.firstPage.deathsaves_death2 = csfp.deathsaves_death2;
+    this.firstPage.deathsaves_death3 = csfp.deathsaves_death3;
+
+    this.firstPage.deathsaves_life1 = csfp.deathsaves_life1;
+    this.firstPage.deathsaves_life2 = csfp.deathsaves_life2;
+    this.firstPage.deathsaves_life3 = csfp.deathsaves_life3;
+
+    this.firstPage.weapon1_name = csfp.weapon1_name;
+    this.firstPage.weapon1_atkBonus = csfp.weapon1_atkBonus;
+    this.firstPage.weapon1_damageType = csfp.weapon1_damageType;
+
+    this.firstPage.weapon2_name = csfp.weapon2_name;
+    this.firstPage.weapon2_atkBonus = csfp.weapon2_atkBonus;
+    this.firstPage.weapon2_damageType = csfp.weapon2_damageType;
+    
+    this.firstPage.weapon3_name = csfp.weapon3_name;
+    this.firstPage.weapon3_atkBonus = csfp.weapon3_atkBonus;
+    this.firstPage.weapon3_damageType = csfp.weapon3_damageType;
+
+    this.firstPage.offense_textbox = csfp.offense_textbox;
+    
+    this.firstPage.inventory_equipment = csfp.inventory_equipment;
+    this.firstPage.inventory_copper = csfp.inventory_copper;
+    this.firstPage.inventory_silver = csfp.inventory_silver;
+    this.firstPage.inventory_electrum = csfp.inventory_electrum;
+    this.firstPage.inventory_gold = csfp.inventory_gold;
+    this.firstPage.inventory_platinum = csfp.inventory_platinum;
+
+    this.firstPage.roleplay_personalityTraits = csfp.roleplay_personalityTraits;
+    this.firstPage.roleplay_ideals = csfp.roleplay_ideals;
+    this.firstPage.roleplay_bonds = csfp.roleplay_bonds;
+    this.firstPage.roleplay_flaws = csfp.roleplay_flaws;
+    this.firstPage.roleplay_featuresAndTraits = csfp.roleplay_featuresAndTraits;
     //calculate modifiers and skills
     this.calculateCharacterSkills();
     }
@@ -182,7 +293,7 @@ export class CharactersheetService {
     
     
     
-  }
+  } */
   public calculateCharacterSkills(){
     //set modifier values
     this.firstPage.strength_modifier = Math.floor((this.firstPage.strength_score-10)/2);
@@ -251,9 +362,9 @@ export class CharactersheetService {
     if(this.firstPage.skill_persuasion_proficiency)this.firstPage.skill_persuasion=this.firstPage.charisma_modifier+this.firstPage.proficiency;
     else this.firstPage.skill_persuasion=this.firstPage.charisma_modifier;
   }
-  public setCaracterValuesTest(csfp=this.firstPage){
+/*   public setCaracterValuesTest(csfp=this.firstPage){
     csfp.name= "Theo -- Test is good!";
-  }
+  } */
   public setCharcterValuesNew(){
     //this.firstPage.
     this.firstPage.name = "",
@@ -278,6 +389,7 @@ export class CharactersheetService {
     this.firstPage.charisma_modifier = 0,
     this.firstPage.passive_perception = 0,
 
+    this.firstPage.proficiencies = "",
     this.firstPage.proficiency = 0,
 
     this.firstPage.save_strength = 0,
@@ -335,8 +447,12 @@ export class CharactersheetService {
     this.firstPage.hitDice_total = "",
     this.firstPage.hitDice_value = "",
 
-    this.firstPage.deathsaves_life = 0,
-    this.firstPage.deathsaves_death = 0,
+    this.firstPage.deathsaves_life1 = false,
+    this.firstPage.deathsaves_life2 = false,
+    this.firstPage.deathsaves_life3 = false,
+    this.firstPage.deathsaves_death1 = false,
+    this.firstPage.deathsaves_death2 = false,
+    this.firstPage.deathsaves_death3 = false,
 
     this.firstPage.weapon1_name = "",
     this.firstPage.weapon1_atkBonus = "",
@@ -364,6 +480,41 @@ export class CharactersheetService {
     this.firstPage.roleplay_bonds = "",
     this.firstPage.roleplay_flaws = "",
     this.firstPage.roleplay_featuresAndTraits = ""
+
+    //set spellbook -new
+
+    this.spellbook.spellClass="",
+    this.spellbook.spellAbility="",
+    this.spellbook.spellSave=0,
+    this.spellbook.spellAtkBonus=0,
+    this.spellbook.cantrips=[],
+    this.spellbook.firstLvl= [],
+    this.spellbook.firstSlots=0,
+    this.spellbook.firstSlotsTotal=0,
+    this.spellbook.secondLvl= [],
+    this.spellbook.secondSlots=0,
+    this.spellbook.secondSlotsTotal=0,
+    this.spellbook.thirdLvl= [],
+    this.spellbook.thirdSlots=0,
+    this.spellbook.thirdSlotsTotal=0,
+    this.spellbook.fourthLvl= [],
+    this.spellbook.fourthSlots=0,
+    this.spellbook.fourthSlotsTotal=0,
+    this.spellbook.fifthLvl= [],
+    this.spellbook.fifthSlots=0,
+    this.spellbook.fifthSlotsTotal=0,
+    this.spellbook.sixthLvl= [],
+    this.spellbook.sixthSlots=0,
+    this.spellbook.sixthSlotsTotal=0,
+    this.spellbook.seventhLvl= [],
+    this.spellbook.seventhSlots=0,
+    this.spellbook.seventhSlotsTotal=0,
+    this.spellbook.eigthLvl= [],
+    this.spellbook.eigthSlots=0,
+    this.spellbook.eigthSlotsTotal=0,
+    this.spellbook.ninthLvl= [],
+    this.spellbook.ninthSlots=0,
+    this.spellbook.ninthSlotsTotal=0
   }
   
   constructor() {

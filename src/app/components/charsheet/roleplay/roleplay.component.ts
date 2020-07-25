@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharactersheetService } from 'src/app/services/charactersheet.service';
 
 @Component({
   selector: 'app-charsheet-roleplay',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoleplayComponent implements OnInit {
 
-  constructor() { }
+  constructor(public css:CharactersheetService) { }
 
   ngOnInit(): void {
   }
