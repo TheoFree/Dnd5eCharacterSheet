@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
-import { EventEmitter } from 'protractor';
-import { Subscription } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
 export class CharactersheetService {
-  /* characterLoadEmmitter = new EventEmitter();
-  characterLoadSUB: Subscription;  */
-
   unsavedchanges:boolean = false;
   charsheet_selected:boolean=true;
   spellbook_view:boolean=false;
@@ -45,7 +39,7 @@ export class CharactersheetService {
     charisma_modifier: 0,
     passive_perception: 0,
 
-    proficiency: 0,
+    proficiency: 2,
 
     proficiencies:"",
 
@@ -180,120 +174,6 @@ export class CharactersheetService {
     ninthSlots:0,
     ninthSlotsTotal:0,
   }
-
-  /**
-   * setCharacterValues
-   */
-  /* public setCharacterValuesFirstPage( csfp? ){// = this.firstPage) {
-    if(csfp != null){
-    //set header values
-    this.firstPage.name = csfp.name;
-    this.firstPage.class = csfp.class;
-    this.firstPage.level = csfp.level;
-    this.firstPage.race = csfp.race;
-    this.firstPage.background = csfp.background;
-    this.firstPage.alignment = csfp.alignment;
-    this.firstPage.player = csfp.player;
-    this.firstPage.experience = csfp.experience;
-    //set attribute values
-    this.firstPage.strength_score =csfp.strength_score;
-    this.firstPage.dexterity_score=csfp.dexterity_score;
-    this.firstPage.constitution_score=csfp.constitution_score;
-    this.firstPage.intellect_score=csfp.intellect_score;
-    this.firstPage.wisdom_score=csfp.wisdom_score;
-    this.firstPage.charisma_score=csfp.charisma_score;
-
-
-    //set proficiency values
-
-    this.firstPage.proficiency=csfp.proficiency;
-    
-    this.firstPage.save_strength_prof=csfp.save_strength_prof;
-    this.firstPage.save_dexterity_prof=csfp.save_dexterity_prof;
-    this.firstPage.save_constitution_prof=csfp.save_constitution_prof;
-    this.firstPage.save_intellect_prof=csfp.save_intellect_prof;
-    this.firstPage.save_wisdom_prof=csfp.save_wisdom_prof;
-    this.firstPage.save_charisma_prof=csfp.save_charisma_prof;
-
-    this.firstPage.skill_acrobatics_proficiency=csfp.skill_acrobatics_proficiency;
-    this.firstPage.skill_animalHandling_proficiency=csfp.skill_animalHandling_proficiency;
-    this.firstPage.skill_arcana_proficiency=csfp.skill_arcana_proficiency;
-    this.firstPage.skill_athletics_proficiency=csfp.skill_athletics_proficiency;
-    this.firstPage.skill_deception_proficiency=csfp.skill_deception_proficiency;
-    this.firstPage.skill_history_proficiency=csfp.skill_history_proficiency;
-    this.firstPage.skill_insight_proficiency=csfp.skill_insight_proficiency;
-    this.firstPage.skill_intimidation_proficiency=csfp.skill_intimidation_proficiency;
-    this.firstPage.skill_investigation_proficiency=csfp.skill_investigation_proficiency;
-    this.firstPage.skill_medicine_proficiency=csfp.skill_medicine_proficiency;
-    this.firstPage.skill_nature_proficiency=csfp.skill_nature_proficiency;
-    this.firstPage.skill_perception_proficiency=csfp.skill_perception_proficiency;
-    this.firstPage.skill_performance_proficiency=csfp.skill_performance_proficiency;
-    this.firstPage.skill_persuasion_proficiency=csfp.skill_persuasion_proficiency;
-    this.firstPage.skill_religion_proficiency=csfp.skill_religion_proficiency;
-    this.firstPage.skill_sleightOfHand_proficiency=csfp.skill_sleightOfHand_proficiency;
-    this.firstPage.skill_stealth_proficiency=csfp.skill_stealth_proficiency;
-    this.firstPage.skill_survival_proficiency=csfp.skill_survival_proficiency;
-    this.firstPage.proficiencies=csfp.proficiencies;
-
-    //set combat values
-
-    this.firstPage.initiative = csfp.initiative;
-    this.firstPage.speed = csfp.speed;
-    this.firstPage.armorClass = csfp.armorClass;
-    
-    this.firstPage.health_maximum = csfp.health_maximum;
-    this.firstPage.health_current = csfp.health_current;
-    this.firstPage.health_temporary = csfp.health_temporary;
-    
-    this.firstPage.hitDice_total = csfp.hitDice_total;
-    this.firstPage.hitDice_value = csfp.hitDice_value;
-
-    this.firstPage.deathsaves_death1 = csfp.deathsaves_death1;
-    this.firstPage.deathsaves_death2 = csfp.deathsaves_death2;
-    this.firstPage.deathsaves_death3 = csfp.deathsaves_death3;
-
-    this.firstPage.deathsaves_life1 = csfp.deathsaves_life1;
-    this.firstPage.deathsaves_life2 = csfp.deathsaves_life2;
-    this.firstPage.deathsaves_life3 = csfp.deathsaves_life3;
-
-    this.firstPage.weapon1_name = csfp.weapon1_name;
-    this.firstPage.weapon1_atkBonus = csfp.weapon1_atkBonus;
-    this.firstPage.weapon1_damageType = csfp.weapon1_damageType;
-
-    this.firstPage.weapon2_name = csfp.weapon2_name;
-    this.firstPage.weapon2_atkBonus = csfp.weapon2_atkBonus;
-    this.firstPage.weapon2_damageType = csfp.weapon2_damageType;
-    
-    this.firstPage.weapon3_name = csfp.weapon3_name;
-    this.firstPage.weapon3_atkBonus = csfp.weapon3_atkBonus;
-    this.firstPage.weapon3_damageType = csfp.weapon3_damageType;
-
-    this.firstPage.offense_textbox = csfp.offense_textbox;
-    
-    this.firstPage.inventory_equipment = csfp.inventory_equipment;
-    this.firstPage.inventory_copper = csfp.inventory_copper;
-    this.firstPage.inventory_silver = csfp.inventory_silver;
-    this.firstPage.inventory_electrum = csfp.inventory_electrum;
-    this.firstPage.inventory_gold = csfp.inventory_gold;
-    this.firstPage.inventory_platinum = csfp.inventory_platinum;
-
-    this.firstPage.roleplay_personalityTraits = csfp.roleplay_personalityTraits;
-    this.firstPage.roleplay_ideals = csfp.roleplay_ideals;
-    this.firstPage.roleplay_bonds = csfp.roleplay_bonds;
-    this.firstPage.roleplay_flaws = csfp.roleplay_flaws;
-    this.firstPage.roleplay_featuresAndTraits = csfp.roleplay_featuresAndTraits;
-    //calculate modifiers and skills
-    this.calculateCharacterSkills();
-    }
-    else{
-      this.setCaracterValuesTest();
-      this.calculateCharacterSkills();
-    }
-    
-    
-    
-    
-  } */
   public calculateCharacterSkills(){
     //set modifier values
     this.firstPage.strength_modifier = Math.floor((this.firstPage.strength_score-10)/2);
@@ -362,9 +242,6 @@ export class CharactersheetService {
     if(this.firstPage.skill_persuasion_proficiency)this.firstPage.skill_persuasion=this.firstPage.charisma_modifier+this.firstPage.proficiency;
     else this.firstPage.skill_persuasion=this.firstPage.charisma_modifier;
   }
-/*   public setCaracterValuesTest(csfp=this.firstPage){
-    csfp.name= "Theo -- Test is good!";
-  } */
   public setCharcterValuesNew(){
     //this.firstPage.
     this.firstPage.name = "",
@@ -390,7 +267,7 @@ export class CharactersheetService {
     this.firstPage.passive_perception = 0,
 
     this.firstPage.proficiencies = "",
-    this.firstPage.proficiency = 0,
+    this.firstPage.proficiency = 2,
 
     this.firstPage.save_strength = 0,
     this.firstPage.save_dexterity = 0,
@@ -516,108 +393,7 @@ export class CharactersheetService {
     this.spellbook.ninthSlots=0,
     this.spellbook.ninthSlotsTotal=0
   }
-  
   constructor() {
 
-  }
-  
+  } 
 }
-
- /* //---character sheet first page values -----------save incase needed later----------
-  "":string="";
-  0:number=0;
-  0:number=10;
-  //header
-  name:string = "";
-  class:string = "";
-  level:number = 0;
-  background:string = "";
-  race:string = "";
-  alignment:string = "";
-  player:string = "";
-  experience:number = 0;
-  //stats
-  strength_score:number = 10;
-  dexterity_score:number = 10;
-  constitution_score:number = 10;
-  intellect_score:number = 10;
-  wisdom_score:number = 10;
-  charisma_score:number = 10;
-  //derived_stats
-  strength_modifier:number = 0;
-  dexterity_modifier:number = 0;
-  constitution_modifier:number = 0;
-  intellect_modifier:number = 0;
-  wisdom_modifier:number = 0;
-  charisma_modifier:number = 0;
-  
-  passive_perception:number = 0;
-  
-  proficiency:number = 0;
-  
-  save_strength:boolean;
-  save_dexterity:boolean;
-  save_constitution:boolean;
-  save_intellect:boolean;
-  save_wisdom:boolean;
-  save_charisma:boolean;
-  
-  skill_acrobatics:number = 0;
-  skill_animalHandling:number = 0;
-  skill_arcana:number = 0;
-  skill_athletics:number = 0;
-  skill_deception:number = 0;
-  skill_history:number = 0;
-  skill_insight:number = 0;
-  skill_intimidation:number = 0;
-  skill_investigation:number = 0;
-  skill_medicine:number = 0;
-  skill_nature:number = 0;
-  skill_perception:number = 0;
-  skill_performance:number = 0;
-  skill_persuasion:number = 0;
-  skill_religion:number = 0;
-  skill_sleightOfHand:number = 0;
-  skill_stealth:number = 0;
-  skill_survival:number = 0;
-  
-  initiative:number = 0;
-  speed:number = 0;
-  armorClass:number = 0;
-  
-  health_maximum:number = 0;
-  health_current:number = 0;
-  health_temporary:number = 0;
-  
-  hitDice_total:string = "";
-  hitDice_value:string = "";
-  
-  deathsaves_life:number = 0;
-  deathsaves_death:number = 0;
-  
-  weapon1_name:string = "";
-  weapon1_atkBonus:string = "";
-  weapon1_damageType:string = "";
-  
-  weapon2_name:string = "";
-  weapon2_atkBonus:string = "";
-  weapon2_damageType:string = "";
-  
-  weapon3_name:string = "";
-  weapon3_atkBonus:string = "";
-  weapon3_damageType:string = "";
-  
-  offense_textbox:string = "";
-  
-  inventory_equipment:string = "";
-  inventory_copper:number = 0;
-  inventory_silver:number = 0;
-  inventory_electrum:number = 0;
-  inventory_gold:number = 0;
-  inventory_platinum:number = 0;
-  
-  roleplay_personalityTraits:string = "";
-  roleplay_ideals:string = "";
-  roleplay_bonds:string = "";
-  roleplay_flaws:string = "";
-  roleplay_featuresAndTraits:string = ""; */

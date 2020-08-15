@@ -1,27 +1,14 @@
-# CharSheetNew
+A charactersheet tool for DND 5E.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+Can create a new character with default stat values. Once you enter new values, skills and saving throws will automatically update while 
+also considering the characters proficiency bonus.
 
-## Development server
+Spellbook button will bring up a spellbook view for the character where the user can add and remove cantrips and spells for every spell level
+as well as spellslot values. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Save button in the bottom right corner will download the charactersheet's values to a JSON format file on the users machine. 
+Opening an existing charactersheet will allow the user to enter a JSON format file and populate character values from it. 
+Button in bottom left hides all of the charactersheet display and shows an in progress stage of my own original artwork for a personal character. 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Future updates will likely rework the spellbook display for better viewing on different screen sizes. There are also plans for a diceroller 
+utility to be added later. 
