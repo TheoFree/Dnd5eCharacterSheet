@@ -1,4 +1,5 @@
-A charactersheet tool for DND 5E.
+
+A charactersheet tool for DND 5E. My first web project, using angular and bootstrap with a theme from bootswatch.
 
 Can create a new character with default stat values. Once you enter new values, skills and saving throws will automatically update while 
 also considering the characters proficiency bonus.
