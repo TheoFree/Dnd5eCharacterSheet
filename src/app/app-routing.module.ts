@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { CharsheetComponent } from './components/charsheet/charsheet.component';
+import { DicerollerComponent } from './components/diceroller/diceroller.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'character',
     component: CharsheetComponent,
+  },
+  {
+    path: 'diceroller',
+    component: DicerollerComponent
   }
 ];
 

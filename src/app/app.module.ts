@@ -18,6 +18,7 @@ import { BioComponent } from './components/bio/bio.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DicerollerComponent } from './components/diceroller/diceroller.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { environment } from '../environments/environment';
     SaveCharacterPromptComponent,
     BioComponent,
     SpellsComponent,
+    DicerollerComponent,
   ],
   imports: [
     BrowserModule,
