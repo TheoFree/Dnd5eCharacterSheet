@@ -1,40 +1,36 @@
 <div style="position: absolute; left: 25%;top: 25%;right:25%;bottom:25%; border:1px solid rgb(255, 200, 0)">
- <div class="container-fluid">
-     <div class="row">
-         <div class="col-lg-8">Input Window</div>
-         <div class="col-lg-2 offset-lg-2">Submit Button</div>
-     </div>
-     <div class="row">
-         <div class="col-lg-2">7</div>
-         <div class="col-lg-2">8</div>
-         <div class="col-lg-2">9</div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-     </div>
-     <div class="row">
-         <div class="col-lg-2">4</div>
-         <div class="col-lg-2">5</div>
-         <div class="col-lg-2">6</div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-     </div>
-     <div class="row">
-         <div class="col-lg-2">1</div>
-         <div class="col-lg-2">2</div>
-         <div class="col-lg-2">3</div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-     </div>
-     <div class="row">
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2">0</div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-         <div class="col-lg-2"></div>
-     </div>
- </div>
+    <div class="container-fluid text-center">
+        <div class="row my-2">
+            <div class="col-lg-8">
+                <input class="w-100 h-100"
+                 type="text"
+                 name="inputString"
+                 [(ngModel)]="this.inputString"
+                 placeholder="Start typing, or click buttons to build formula"
+                 (keyup.enter)="this.submit()">
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-danger w-100" (click)="this.inputDelete()">Delete</button>
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-warning w-100" (click)="this.submit()">Submit</button>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-lg-2" *ngFor="let i of this.buttonRows.row1">
+                <button class="btn btn-secondary w-100" (click)="this.inputAdd(i)">{{i}}</button>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-lg-2" *ngFor="let i of this.buttonRows.row2">
+                <button class="btn btn-secondary w-100" (click)="this.inputAdd(i)">{{i}}</button>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col-lg-2" *ngFor="let i of this.buttonRows.row3">
+                <button class="btn btn-secondary w-100" (click)="this.inputAdd(i)">{{i}}</button>
+            </div>
+        </div>
+        
+    </div>
 </div>

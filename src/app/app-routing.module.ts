@@ -22,6 +22,11 @@ const routes: Routes = [
   {
     path: 'diceroller',
     component: DicerollerComponent
+  },
+  {
+    path: '*',
+    pathMatch:'full',
+    redirectTo: 'home'
   }
 ];
 
